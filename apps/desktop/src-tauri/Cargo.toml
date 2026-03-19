@@ -1,0 +1,27 @@
+[package]
+name = "accounting-desktop"
+version = "0.1.0"
+description = "โปรแกรมทำบัญชีออฟไลน์"
+authors = []
+license = ""
+repository = ""
+default-run = "accounting-desktop"
+edition = "2021"
+rust-version = "1.70"
+
+[build-dependencies]
+tauri-build = { version = "1.5", features = [] }
+
+[dependencies]
+tauri = { version = "1.6", features = ["shell-open"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.31", features = ["bundled"] }
+uuid = { version = "1", features = ["v4"] }
+bcrypt = "0.15"
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1"
+tokio = { version = "1", features = ["full"] }
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]
