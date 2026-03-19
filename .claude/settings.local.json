@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//e/งานตรวจสอบบัญชี/**)",
+      "Bash(find /e/งานตรวจสอบบัญชี/โปรแกรมบัญชี -name .* -o -name *)",
+      "WebFetch(domain:www.tfac.or.th)",
+      "WebFetch(domain:www.dbd.go.th)",
+      "WebFetch(domain:www.rd.go.th)",
+      "WebFetch(domain:www.sso.go.th)",
+      "WebSearch",
+      "WebFetch(domain:efiling.dbd.go.th)",
+      "WebFetch(domain:acpro-std.tfac.or.th)",
+      "WebFetch(domain:etax.rd.go.th)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.mazars.co.th)",
+      "WebFetch(domain:www.forvismazars.com)",
+      "WebFetch(domain:sherrings.com)",
+      "WebFetch(domain:www.boi.go.th)",
+      "WebFetch(domain:thailand.acclime.com)",
+      "WebFetch(domain:www.bangkokpost.com)",
+      "WebFetch(domain:www.pwc.com)",
+      "Bash(find /e/งานตรวจสอบบัญชี/โปรแกรมบัญชี -type f \\\\\\(-name *.txt -o -name *.md -o -name *.docx -o -name *.xlsx -o -name *.pdf \\\\\\))"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "accounting-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/desktop",
+    "apps/web",
+    "apps/shared",
+    "packages/*",
+    "services/*"
+  ],
+  "scripts": {
+    "setup": "npm install",
+    "desktop": "cd apps/desktop && npm run dev",
+    "web": "cd apps/web && npm run dev",
+    "db:migrate": "cd services/db && npm run migrate",
+    "db:seed": "cd services/db && npm run seed",
+    "build:all": "npm run build -r",
+    "lint": "npm run lint -r",
+    "test": "npm test -r"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.6"
+  }
+}
