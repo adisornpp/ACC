@@ -48,24 +48,25 @@ function App() {
   }
 
   return (
-    <Router>
-      <Routes>
-        {!isAuthenticated ? (
-          <Route path="/login" element={<LoginPage />} />
-        ) : (
-          <Route element={<Layout />}>
-            <Route path="/" element={<DashboardPage />} />
-            <Route path="/companies" element={<CompaniesPage />} />
-            <Route path="/accounts" element={<ChartOfAccountsPage />} />
-            <Route path="/entries" element={<JournalEntryPage />} />
-            <Route path="/ledger" element={<GeneralLedgerPage />} />
-            <Route path="/reports" element={<ReportsPage />} />
-          </Route>
-        )}
-        <Route path="*" element={<Navigate to={isAuthenticated ? '/' : '/login'} replace />} />
-      </Routes>
-      <Toaster />
-    </Router>
+    <Toaster>
+      <Router>
+        <Routes>
+          {!isAuthenticated ? (
+            <Route path="/login" element={<LoginPage />} />
+          ) : (
+            <Route element={<Layout />}>
+              <Route path="/" element={<DashboardPage />} />
+              <Route path="/companies" element={<CompaniesPage />} />
+              <Route path="/accounts" element={<ChartOfAccountsPage />} />
+              <Route path="/entries" element={<JournalEntryPage />} />
+              <Route path="/ledger" element={<GeneralLedgerPage />} />
+              <Route path="/reports" element={<ReportsPage />} />
+            </Route>
+          )}
+          <Route path="*" element={<Navigate to={isAuthenticated ? '/' : '/login'} replace />} />
+        </Routes>
+      </Router>
+    </Toaster>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { invoke } from '@tauri-apps/api/tauri'
 import { useCompanyStore } from '@/store/companyStore'
-import type { Account } from '@packages/types/accounting'
+import type { Account } from '../../../types/accounting'
 
 const ACCOUNT_TYPES = ['Asset', 'Liability', 'Equity', 'Revenue', 'Expense']
 const ACCOUNT_TYPE_LABELS: Record<string, string> = {

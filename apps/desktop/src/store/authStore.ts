@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { invoke } from '@tauri-apps/api/tauri'
-import type { User } from '@packages/types/accounting'
+import type { User } from '../../types/accounting'
 
 interface AuthStore {
   user: User | null

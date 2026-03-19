@@ -4,6 +4,7 @@ import { useCompanyStore } from '@/store/companyStore'
 
 const menuItems = [
   { path: '/', label: 'แดชบอร์ด', icon: '📊' },
+  { path: '/companies', label: 'บริษัท', icon: '🏢' },
   { path: '/accounts', label: 'แผนบัญชี', icon: '📑' },
   { path: '/entries', label: 'บันทึกบัญชี', icon: '📝' },
   { path: '/ledger', label: 'บัญชีแยกประเภท', icon: '📖' },

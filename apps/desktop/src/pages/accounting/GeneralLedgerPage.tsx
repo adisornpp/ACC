@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { invoke } from '@tauri-apps/api/tauri'
 import { useCompanyStore } from '@/store/companyStore'
-import type { Account, GlEntry } from '@packages/types/accounting'
+import type { Account, GlEntry } from '../../../types/accounting'
 
 function formatThb(n: number) {
   return n.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
