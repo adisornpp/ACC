@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { invoke } from '@tauri-apps/api/tauri'
 import { useCompanyStore } from '@/store/companyStore'
 import { useAuthStore } from '@/store/authStore'
-import type { Account, JournalEntry } from '@packages/types/accounting'
+import type { Account, JournalEntry } from '../../../types/accounting'
 
 interface Journal {
   id: string
