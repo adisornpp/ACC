@@ -11,6 +11,7 @@ import ChartOfAccountsPage from '@/pages/accounting/ChartOfAccountsPage'
 import JournalEntryPage from '@/pages/accounting/JournalEntryPage'
 import GeneralLedgerPage from '@/pages/accounting/GeneralLedgerPage'
 import ReportsPage from '@/pages/accounting/ReportsPage'
+import SocialSecurityPage from '@/pages/SocialSecurityPage'
 
 // Components
 import Layout from '@/components/Layout'
@@ -61,6 +62,7 @@ function App() {
               <Route path="/entries" element={<JournalEntryPage />} />
               <Route path="/ledger" element={<GeneralLedgerPage />} />
               <Route path="/reports" element={<ReportsPage />} />
+              <Route path="/social-security" element={<SocialSecurityPage />} />
             </Route>
           )}
           <Route path="*" element={<Navigate to={isAuthenticated ? '/' : '/login'} replace />} />

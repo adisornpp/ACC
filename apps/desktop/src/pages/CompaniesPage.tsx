@@ -16,7 +16,7 @@ interface CompanyFormData {
   email: string
   currency: string
   fiscalYearStart: number
-  isVatRegistered: boolean
+  vatRegistered: boolean
 }
 
 const EMPTY_FORM: CompanyFormData = {
@@ -27,7 +27,7 @@ const EMPTY_FORM: CompanyFormData = {
   email: '',
   currency: 'THB',
   fiscalYearStart: 1,
-  isVatRegistered: false,
+  vatRegistered: false,
 }
 
 const MONTHS = [
@@ -80,7 +80,7 @@ function CompanyCard({
         {company.phone   && <p>📞 {company.phone}</p>}
         {company.email   && <p>✉️ {company.email}</p>}
         <p>📅 ปีงบประมาณเริ่ม: {MONTHS[(company.fiscalYearStart ?? 1) - 1]}</p>
-        {company.isVatRegistered && <p>🧾 จดทะเบียนภาษีมูลค่าเพิ่ม</p>}
+        {company.vatRegistered && <p>🧾 จดทะเบียนภาษีมูลค่าเพิ่ม</p>}
       </div>
 
       <div className="mt-4 pt-4 border-t border-gray-100 flex flex-wrap items-center gap-2">
@@ -104,7 +104,7 @@ export default function CompaniesPage() {
   const [deleteTarget, setDeleteTarget] = useState<Company | null>(null)
   const [form, setForm] = useState<CompanyFormData>(EMPTY_FORM)
   const [saving, setSaving] = useState(false)
-  const [seeding, setSeeding] = useState<number | null>(null)
+  const [seeding, setSeeding] = useState<string | null>(null)
 
   function openCreate() {
     setForm(EMPTY_FORM)
@@ -120,7 +120,7 @@ export default function CompaniesPage() {
       email:            company.email ?? '',
       currency:         company.currency ?? 'THB',
       fiscalYearStart:  company.fiscalYearStart ?? 1,
-      isVatRegistered:  company.isVatRegistered ?? false,
+      vatRegistered:  company.vatRegistered ?? false,
     })
     setEditTarget(company)
   }
@@ -243,8 +243,8 @@ export default function CompaniesPage() {
       <label className="flex items-center gap-3 cursor-pointer select-none">
         <input
           type="checkbox"
-          checked={form.isVatRegistered}
-          onChange={e => setField('isVatRegistered', e.target.checked)}
+          checked={form.vatRegistered}
+          onChange={e => setField('vatRegistered', e.target.checked)}
           className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
         />
         <span className="text-sm text-gray-700">จดทะเบียนภาษีมูลค่าเพิ่ม (VAT)</span>

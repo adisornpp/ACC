@@ -23,6 +23,7 @@ chrono = { version = "0.4", features = ["serde"] }
 thiserror = "1"
 tokio = { version = "1", features = ["full"] }
 dirs = "5"
+rust_xlsxwriter = "0.80"
 
 [features]
 custom-protocol = ["tauri/custom-protocol"]

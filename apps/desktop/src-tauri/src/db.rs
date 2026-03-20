@@ -108,10 +108,25 @@ pub fn init_db(conn: &Connection) -> Result<()> {
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
         );
 
+        CREATE TABLE IF NOT EXISTS employees (
+            id TEXT PRIMARY KEY,
+            company_id TEXT NOT NULL,
+            employee_code TEXT NOT NULL,
+            full_name TEXT NOT NULL,
+            ss_number TEXT,
+            salary REAL NOT NULL DEFAULT 0,
+            is_active INTEGER DEFAULT 1,
+            created_at TEXT DEFAULT (datetime('now')),
+            updated_at TEXT DEFAULT (datetime('now')),
+            FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE,
+            UNIQUE(company_id, employee_code)
+        );
+
         CREATE INDEX IF NOT EXISTS idx_accounts_company ON accounts(company_id);
         CREATE INDEX IF NOT EXISTS idx_journal_entries_company ON journal_entries(company_id, entry_date);
         CREATE INDEX IF NOT EXISTS idx_gl_entries_account ON gl_entries(company_id, account_id);
         CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);
+        CREATE INDEX IF NOT EXISTS idx_employees_company ON employees(company_id);
     ")?;
 
     Ok(())

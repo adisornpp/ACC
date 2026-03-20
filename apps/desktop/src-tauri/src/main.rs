@@ -50,6 +50,17 @@ fn main() {
             commands::reports::get_trial_balance,
             commands::reports::get_balance_sheet,
             commands::reports::get_income_statement,
+            commands::reports::get_vat_report,
+            // Exports
+            commands::exports::export_trial_balance_excel,
+            commands::exports::export_income_statement_excel,
+            // Payroll / Social Security
+            commands::payroll::get_employees,
+            commands::payroll::create_employee,
+            commands::payroll::update_employee,
+            commands::payroll::delete_employee,
+            commands::payroll::calculate_ss_report,
+            commands::payroll::export_ss_excel,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

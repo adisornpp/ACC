@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { invoke } from '@tauri-apps/api/tauri'
-import type { Company } from '../../types/accounting'
+import type { Company } from '../types/accounting'
 
 interface CompanyStore {
   companies: Company[]

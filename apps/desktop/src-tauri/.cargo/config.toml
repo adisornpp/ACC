@@ -1,0 +1,3 @@
+[build]
+# Keep target dir in ASCII path — avoids issues with Thai characters in project path
+target-dir = "C:/Users/gaming/cargo-targets/accounting"

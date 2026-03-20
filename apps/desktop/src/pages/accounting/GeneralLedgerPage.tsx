@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { invoke } from '@tauri-apps/api/tauri'
 import { useCompanyStore } from '@/store/companyStore'
-import type { Account, GlEntry } from '../../../types/accounting'
+import type { Account, GLEntry } from '../../types/accounting'
 
 function formatThb(n: number) {
   return n.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
@@ -16,7 +16,7 @@ export default function GeneralLedgerPage() {
     return `${d.getFullYear()}-01-01`
   })
   const [toDate, setToDate] = useState(() => new Date().toISOString().split('T')[0])
-  const [entries, setEntries] = useState<GlEntry[]>([])
+  const [entries, setEntries] = useState<GLEntry[]>([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function GeneralLedgerPage() {
     if (!currentCompany || !selectedAccount) return
     setLoading(true)
     try {
-      const data = await invoke<GlEntry[]>('get_gl_entries', {
+      const data = await invoke<GLEntry[]>('get_gl_entries', {
         companyId: currentCompany.id,
         accountId: selectedAccount,
         fromDate,

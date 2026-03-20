@@ -9,6 +9,7 @@ const menuItems = [
   { path: '/entries', label: 'บันทึกบัญชี', icon: '📝' },
   { path: '/ledger', label: 'บัญชีแยกประเภท', icon: '📖' },
   { path: '/reports', label: 'รายงาน', icon: '📈' },
+  { path: '/social-security', label: 'ประกันสังคม', icon: '🏥' },
 ]
 
 export default function Layout() {
