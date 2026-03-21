@@ -1,3 +1,13 @@
 [build]
 # Keep target dir in ASCII path — avoids issues with Thai characters in project path
 target-dir = "C:/Users/gaming/cargo-targets/accounting"
+target = "x86_64-pc-windows-gnu"
+
+[target.x86_64-pc-windows-gnu]
+linker = "C:/msys64/mingw64/bin/gcc.exe"
+ar = "C:/msys64/mingw64/bin/ar.exe"
+
+[env]
+CC_x86_64_pc_windows_gnu = "C:/msys64/mingw64/bin/gcc.exe"
+CXX_x86_64_pc_windows_gnu = "C:/msys64/mingw64/bin/g++.exe"
+AR_x86_64_pc_windows_gnu = "C:/msys64/mingw64/bin/ar.exe"

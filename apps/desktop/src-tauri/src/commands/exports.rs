@@ -62,14 +62,14 @@ pub fn export_trial_balance_excel(
     let total_fmt = Format::new()
         .set_bold()
         .set_num_format("#,##0.00")
-        .set_top_border(FormatBorder::Double);
+        .set_border(FormatBorder::Double);
 
     sheet.merge_range(0, 0, 0, 4, &company_name, &title_fmt).map_err(xlsx_error)?;
     sheet.write_string(1, 0, &format!("งบทดลอง ณ วันที่ {}", as_of_date)).map_err(xlsx_error)?;
 
     let headers = ["รหัสบัญชี", "ชื่อบัญชี", "ประเภท", "เดบิต", "เครดิต"];
     for (i, h) in headers.iter().enumerate() {
-        sheet.write_string_with_format(3, i as u16, h, &header_fmt).map_err(xlsx_error)?;
+        sheet.write_string_with_format(3, i as u16, *h, &header_fmt).map_err(xlsx_error)?;
     }
 
     sheet.set_column_width(0, 12).map_err(xlsx_error)?;
@@ -155,7 +155,7 @@ pub fn export_income_statement_excel(
     let num_fmt = Format::new().set_num_format("#,##0.00").set_border(FormatBorder::Thin);
     let cell_fmt = Format::new().set_border(FormatBorder::Thin);
     let section_fmt = Format::new().set_bold().set_background_color(0xE0E7FF_u32);
-    let total_fmt = Format::new().set_bold().set_num_format("#,##0.00").set_top_border(FormatBorder::Double);
+    let total_fmt = Format::new().set_bold().set_num_format("#,##0.00").set_border(FormatBorder::Double);
 
     sheet.merge_range(0, 0, 0, 3, &company_name, &title_fmt).map_err(xlsx_error)?;
     sheet
@@ -164,7 +164,7 @@ pub fn export_income_statement_excel(
 
     let headers = ["รหัสบัญชี", "ชื่อบัญชี", "ประเภท", "จำนวนเงิน"];
     for (i, h) in headers.iter().enumerate() {
-        sheet.write_string_with_format(3, i as u16, h, &header_fmt).map_err(xlsx_error)?;
+        sheet.write_string_with_format(3, i as u16, *h, &header_fmt).map_err(xlsx_error)?;
     }
     sheet.set_column_width(0, 12).map_err(xlsx_error)?;
     sheet.set_column_width(1, 40).map_err(xlsx_error)?;

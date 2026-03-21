@@ -271,7 +271,7 @@ pub fn export_ss_excel(
         .set_border(FormatBorder::Thin);
     let num_fmt = Format::new().set_num_format("#,##0.00").set_border(FormatBorder::Thin);
     let cell_fmt = Format::new().set_border(FormatBorder::Thin);
-    let total_fmt = Format::new().set_bold().set_num_format("#,##0.00").set_top_border(FormatBorder::Double);
+    let total_fmt = Format::new().set_bold().set_num_format("#,##0.00").set_border(FormatBorder::Double);
 
     sheet.merge_range(0, 0, 0, 5, &company_name, &title_fmt).map_err(|e: rust_xlsxwriter::XlsxError| e.to_string())?;
     sheet
@@ -280,7 +280,7 @@ pub fn export_ss_excel(
 
     let headers = ["ลำดับ", "รหัสพนักงาน", "ชื่อ-สกุล", "เงินเดือน", "ส่วนลูกจ้าง", "ส่วนนายจ้าง"];
     for (i, h) in headers.iter().enumerate() {
-        sheet.write_string_with_format(3, i as u16, h, &header_fmt).map_err(|e: rust_xlsxwriter::XlsxError| e.to_string())?;
+        sheet.write_string_with_format(3, i as u16, *h, &header_fmt).map_err(|e: rust_xlsxwriter::XlsxError| e.to_string())?;
     }
     sheet.set_column_width(0, 8).map_err(|e: rust_xlsxwriter::XlsxError| e.to_string())?;
     sheet.set_column_width(1, 14).map_err(|e: rust_xlsxwriter::XlsxError| e.to_string())?;
