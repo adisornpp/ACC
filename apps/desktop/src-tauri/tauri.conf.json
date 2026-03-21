@@ -1,6 +1,6 @@
 {
   "build": {
-    "beforeDevCommand": "npm run dev",
+    "beforeDevCommand": "cd /d C:\\acc-project\\apps\\desktop && npx vite",
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:5173",
     "distDir": "../dist"
