@@ -5,6 +5,7 @@ import { useCompanyStore } from '@/store/companyStore'
 
 // Pages
 import LoginPage from '@/pages/auth/LoginPage'
+import SetupPage from '@/pages/SetupPage'
 import DashboardPage from '@/pages/DashboardPage'
 import CompaniesPage from '@/pages/CompaniesPage'
 import ChartOfAccountsPage from '@/pages/accounting/ChartOfAccountsPage'
@@ -19,7 +20,7 @@ import { Toaster } from '@/components/ui/toaster'
 
 function App() {
   const { isAuthenticated, user, initAuth } = useAuthStore()
-  const { loadCompanies } = useCompanyStore()
+  const { loadCompanies, companies } = useCompanyStore()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -45,6 +46,15 @@ function App() {
           <p className="text-gray-600">กำลังโหลด...</p>
         </div>
       </div>
+    )
+  }
+
+  // First-run: no companies in DB yet
+  if (companies.length === 0 && !isAuthenticated) {
+    return (
+      <Toaster>
+        <SetupPage />
+      </Toaster>
     )
   }
 
